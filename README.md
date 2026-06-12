@@ -1,11 +1,11 @@
 <p align="center">
-    <img src="logo.png" width="300"/>
+    <img src="https://github.com/KubikNoLego/Kubiks/blob/main/logo.png?raw=true" width="300"/>
 </p>
 <h4 align="center">A simple and human-readable configuration language for Python.</h4>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-🇺🇸 [**English**](README.en.md) | 🇷🇺 [Русский](README.ru.md)
+🇺🇸 [**English**](https://github.com/KubikNoLego/Kubiks/blob/main/README.md) | 🇷🇺 [Русский](https://github.com/KubikNoLego/Kubiks/blob/main/README.ru.md)
 
 # Introduction
 

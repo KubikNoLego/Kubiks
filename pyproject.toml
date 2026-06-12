@@ -1,12 +1,10 @@
 [project]
 name = "kubiks"
-version = "0.1.0"
+version = "0.1.1"
 description = "A simple library that allows you to work with .kbk files."
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = [
-    "pytest>=9.0.3",
-]
+dependencies = []
 
 authors = [
     {name = "KubikNoLego", email = "originallikitun@gmail.com"}
