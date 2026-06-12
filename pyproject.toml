@@ -1,6 +1,6 @@
 [project]
 name = "kubiks"
-version = "0.1.1"
+version = "0.1.2"
 description = "A simple library that allows you to work with .kbk files."
 readme = "README.md"
 requires-python = ">=3.12"
