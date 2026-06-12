@@ -1,0 +1,39 @@
+# Game session state
+session |= {
+    session_id |= 984512
+    active |= true
+
+    player |= {
+        name |= "ShadowKnight"
+        level |= 18
+        xp |= 3450
+    }
+
+    progress |= {
+        main_quest |= "dragon_hunt"
+        side_quests_completed |= 7
+        completion_rate |= 43%
+    }
+
+    inventory |= [
+        "iron_sword",
+        "healing_potion",
+        "map_fragment",
+        "torch"
+    ]
+
+    stats |= {
+        kills |= 52
+        deaths |= 8
+        assists |= 14
+    }
+
+    settings |= {
+        difficulty |= "normal"
+        music_volume |= 80%
+        sfx_volume |= 65%
+    }
+}
+
+# 43% -> 0.43
+# 80% -> 0.8

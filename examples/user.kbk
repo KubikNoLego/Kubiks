@@ -1,0 +1,32 @@
+# Player profile
+player |= {
+    username |= "KubikNoLego"
+    level |= 42
+    experience |= 15890
+    premium |= true
+
+    balance |= 2500.75
+    win_rate |= 67%
+    win_rate_text |= "67%"
+
+    inventory |= [
+        "wooden_sword",
+        "iron_pickaxe",
+        "golden_apple"
+    ]
+
+    statistics |= {
+        games_played |= 156
+        games_won |= 104
+        highest_score |= 8920
+    }
+
+    telegram |= {
+        user_id |= 50821222
+        username |= "kubik"
+    }
+}
+
+# Comments start with '#'
+# Percent values are automatically converted:
+# 67% -> 0.67

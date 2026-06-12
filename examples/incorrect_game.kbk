@@ -1,0 +1,42 @@
+# Game session state (INVALID CONFIG EXAMPLE)
+
+session |= {
+    session_id = 984512        # ❌ should use "|=" instead of "="
+    active |= true
+
+    player |= {
+        name |= ShadowKnight    # ❌ missing quotes for string value
+        level |= "18"           # ❌ should be number, not string
+        xp |= 3450
+    }
+
+    progress |={               # ❌ malformed operator / syntax error
+        main_quest |= "dragon_hunt"
+        side_quests_completed |= seven   # ❌ invalid literal (should be number)
+        completion_rate |= 43            # ❌ percent sign missing (if required format is %)
+    }
+
+    inventory |= [
+        "iron_sword"
+        "healing_potion",     # ❌ missing comma before this line is inconsistent formatting
+        "map_fragment",
+        "torch",
+    ]
+
+    stats |= {
+        kills |= 52
+        deaths |= 8
+        assists |= null        # ✔ null is valid, but check if allowed for this field semantically
+    }
+
+    settings |= {
+        difficulty |= "normal"
+        music_volume |= 120%   # ❌ percentage out of valid range (0–100%)
+        sfx_volume |= "65%"    # ❌ should be numeric, not string
+    }
+}
+
+# Notes:
+# - 43% -> 0.43 conversion rule expected
+# - This file contains multiple syntax and type validation errors
+# - Brackets/structure may also be inconsistent depending on parser rules

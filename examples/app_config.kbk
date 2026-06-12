@@ -1,0 +1,32 @@
+# Application config
+app |= {
+    name |= "KubikService"
+    version |= "1.4.2"
+    debug |= false
+
+    database |= {
+        host |= "localhost"
+        port |= 5432
+        name |= "kubik_db"
+        pool_size |= 10
+    }
+
+    features |= {
+        auth |= true
+        caching |= true
+        analytics |= false
+    }
+
+    limits |= {
+        max_users |= 10000
+        max_requests_per_minute |= 1200
+        uptime_target |= 99.95%
+    }
+
+    admin |= {
+        email |= "admin@kubik.dev"
+        notifications |= true
+    }
+}
+
+# 99.95% -> 0.9995
