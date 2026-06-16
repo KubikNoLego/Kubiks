@@ -1,6 +1,6 @@
 from .ast import (
-    Node, AssignmentNode, ListNode, DictNode, String, FileNode, Float, Percent,
-    Integer, Key, Boolean, Null
+    AssignmentNode, ListNode, DictNode, String, FileNode, Float, Percent,
+    Integer, Boolean, Null
 )
 
 class Interpreter:
@@ -9,29 +9,21 @@ class Interpreter:
         self.env = {}
 
     def eval(self, node):
-        if isinstance(node, FileNode):
-            return self._eval_file(node)
-        if isinstance(node, AssignmentNode):
-            return self._eval_assignment(node)
+        handlers = {
+            FileNode: self._eval_file,
+            AssignmentNode: self._eval_assignment,
+            ListNode: self._eval_list,
+            DictNode: self._eval_dict,
+        }
 
-        if isinstance(node, Float):
-            return node.value
-        if isinstance(node, Integer):
-            return node.value
-        if isinstance(node, Percent):
-            return node.value
-        if isinstance(node, String):
-            return node.value
-        if isinstance(node, Boolean):
-            return node.value
-        if isinstance(node, Null):
+        literals = (Float, Integer, Percent, String, Boolean, Null)
+
+        if isinstance(node, literals):
             return node.value
 
-        if isinstance(node, ListNode):
-            return self._eval_list(node)
-
-        if isinstance(node, DictNode):
-            return self._eval_dict(node)
+        handler = handlers.get(type(node))
+        if handler:
+            return handler(node)
 
         raise TypeError(f"Unknown node: {type(node).__name__}")
     

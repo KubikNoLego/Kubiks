@@ -57,33 +57,29 @@ class Lexer:
             kind = match.lastgroup
             value = match.group()
 
-            if kind in ("COMMENT", "SKIP", "NEWLINE"):
-                continue
-            
-            elif kind == "STRING":
-                yield self.Token(kind, value[1:-1])
-            
-            elif kind == "PERCENT":
-                yield self.Token(kind, round((float(value[:-1])/100), 6))
-            
-            elif kind == "FLOAT":
-                yield self.Token(kind, float(value))
+            match kind:
+                case "STRING":
+                    value = value[1:-1]
 
-            elif kind == "BOOLEAN":
-                yield self.Token(kind, True if value == 'true' else False)
-            
-            elif kind == "NULL":
-                yield self.Token(kind, None)
-            
-            elif kind == "INTEGER":
-                yield self.Token(kind, int(value))
-            
-            elif kind == "KEY":
-                yield self.Token(kind, value)
+                case "PERCENT":
+                    value = round(float(value[:-1]) / 100, 6)
 
-            elif kind in ("ASSIGNMENT", "LBRACE", "RBRACE",
-                            "LBRACK", "RBRACK", "LPAREN", "RPAREN", "COMMA"):
-                yield self.Token(kind, value)
-            
-            elif kind == "MISMATCH":
-                raise SyntaxError(f"Unexpected character: {value!r}")
+                case "FLOAT":
+                    value = float(value)
+
+                case "INTEGER":
+                    value = int(value)
+
+                case "BOOLEAN":
+                    value = value == "true"
+
+                case "NULL":
+                    value = None
+
+                case "COMMENT" | "SKIP" | "NEWLINE":
+                    continue
+                
+                case "MISMATCH":
+                    raise SyntaxError(...)
+
+            yield self.Token(kind, value)
